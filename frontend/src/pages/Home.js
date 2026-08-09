@@ -384,22 +384,26 @@ function Home() {
               I already have an account
             </Link>
           </div>
-
-          <div className="home-stats">
-            {STATS.map((s) => (
-              <div className="home-stat" key={s.label}>
-                <i className={`bi ${s.icon}`} />
-                <strong>{s.value}</strong>
-                <span>{s.label}</span>
-              </div>
-            ))}
-          </div>
         </div>
 
         <div className="home-hero__preview">
           <DashboardPreview compact />
         </div>
       </header>
+
+      <section className="home-stats-section">
+        <div className="home-stats-grid">
+          {STATS.map((s) => (
+            <div className="home-stat-card" key={s.label}>
+              <div className="home-stat-card__icon">
+                <i className={`bi ${s.icon}`} />
+              </div>
+              <strong>{s.value}</strong>
+              <span>{s.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <section className={`home-features reveal ${featuresVisible ? "is-visible" : ""}`} ref={featuresRef}>
         <h2>Everything you need to stay on budget</h2>
