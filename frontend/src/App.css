@@ -842,7 +842,7 @@ font-size:28px;
   align-items: center;
   justify-content: center;
   padding: 12px 26px;
-  border-radius: 9px;
+  border-radius: 999px;
   font-weight: 700;
   font-size: 15px;
   text-decoration: none;
@@ -983,32 +983,74 @@ font-size:28px;
   animation: homeFadeUp 0.6s ease both 140ms;
 }
 
-.home-stats {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
+.home-stats-section {
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  padding: 0 48px;
   animation: homeFadeUp 0.6s ease both 200ms;
 }
 
-.home-stat {
+.home-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.home-stat-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 22px 20px;
+  box-shadow: 0 10px 24px rgba(15, 10, 60, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  align-items: flex-start;
+  gap: 4px;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
 }
 
-.home-stat i {
-  color: #fbbf24;
-  font-size: 15px;
-  margin-bottom: 4px;
+.home-stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px rgba(15, 10, 60, 0.16);
 }
 
-.home-stat strong {
-  font-size: 19px;
+.home-stat-card__icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  margin-bottom: 9px;
+}
+
+.home-stat-card:nth-child(1) .home-stat-card__icon {
+  background: rgba(251, 191, 36, 0.14);
+  color: #f59e0b;
+}
+
+.home-stat-card:nth-child(2) .home-stat-card__icon {
+  background: rgba(34, 197, 94, 0.14);
+  color: #16a34a;
+}
+
+.home-stat-card:nth-child(3) .home-stat-card__icon {
+  background: rgba(99, 102, 241, 0.14);
+  color: #6366f1;
+}
+
+.home-stat-card:nth-child(4) .home-stat-card__icon {
+  background: rgba(244, 63, 94, 0.14);
+  color: #f43f5e;
+}
+
+.home-stat-card strong {
+  font-size: 20px;
   font-weight: 800;
+  color: #1e1b3a;
 }
 
-.home-stat span {
-  font-size: 12px;
+.home-stat-card span {
+  font-size: 12.5px;
   color: #6b7280;
 }
 
@@ -1672,6 +1714,9 @@ font-size:28px;
   .home-features__grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .home-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .home-testimonials__grid {
     grid-template-columns: 1fr;
   }
@@ -1683,6 +1728,7 @@ font-size:28px;
 @media (max-width: 720px) {
   .home-navbar,
   .home-hero,
+  .home-stats-section,
   .home-features,
   .home-steps,
   .home-preview-section,
@@ -1697,6 +1743,9 @@ font-size:28px;
   }
   .home-features__grid {
     grid-template-columns: 1fr;
+  }
+  .home-stats-grid {
+    grid-template-columns: 1fr 1fr;
   }
   .home-steps__row {
     flex-direction: column;
