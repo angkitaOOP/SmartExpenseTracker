@@ -753,7 +753,10 @@ font-size:28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 22px 48px;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 22px 48px 22px 48px;
+  box-sizing: border-box;
 }
 
 .home-navbar__brand {
